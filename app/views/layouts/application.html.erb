@@ -46,11 +46,17 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">MovieDb</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <div class="navbar-collapse collapse navbar-responsive-collapse pull-left">
           <ul class="nav navbar-nav">
             <li><%= link_to "Link1", "/path1"  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
+          </ul>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse pull-right">
+          <ul class="nav navbar-nav">
+            <%= render 'devise/menu/login_items' %>
+            <%= render 'devise/menu/registration_items' %>
           </ul>
         </div>
       </div>
