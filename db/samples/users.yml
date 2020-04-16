@@ -1,0 +1,11 @@
+---
+admin:
+  username: admin
+  email: admin@example.com
+  first_name: System
+  last_name: Admin
+guest_user:
+  username: guest
+  email: guest@example.com
+  first_name: Guest
+  last_name: User

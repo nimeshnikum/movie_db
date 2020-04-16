@@ -1,0 +1,120 @@
+---
+- title: The Dark Knight
+  user_id: 1
+  categories:
+    - Action
+    - Crime
+    - Drama
+    - Fantasy
+- title: Inception
+  user_id: 1
+  categories:
+    - Fantasy
+    - Sci-Fi
+    - Action
+- title: Gladiator
+  user_id: 1
+  categories:
+    - Drama
+    - History
+    - War
+    - Action
+- title: Goodfells
+  user_id: 2
+  categories:
+     - Drama
+     - Biography
+     - Crime
+- title: Life Is Beautiful
+  user_id: 1
+  categories:
+    - Family
+    - Drama
+    - Romance
+    - Musical
+- title: Toy Story
+  user_id: 1
+  categories:
+    - Animation
+    - Family
+    - Comedy
+- title: The Green Mile
+  user_id: 2
+  categories:
+    - Mystery
+    - Drama
+- title: Coco
+  user_id: 1
+  categories:
+    - Animation
+    - Family
+    - Musical
+- title: Memento
+  user_id: 1
+  categories:
+    - Thriller
+    - Drama
+    - Action
+    - Mystery
+- title: L.A. Confidential
+  user_id: 1
+  categories:
+    - Action
+    - Thriller
+    - Drama
+- title: Avengers Endgame
+  user_id: 2
+  categories:
+    - Action
+    - Sci-Fi
+    - Adventure
+- title: Captain America
+  user_id: 2
+  categories:
+    - Sci-Fi
+    - Family
+    - Drama
+- title: Parasite
+  user_id: 1
+  categories:
+    - Drama
+    - Comedy
+    - Mystery
+- title: Shutter Island
+  user_id: 1
+  categories:
+    - Mystery
+    - Thriller
+    - Drama
+- title: Wolf of Wall Street
+  user_id: 1
+  categories:
+    - Comedy
+    - Drama
+    - Crime
+- title: Social Network
+  user_id: 1
+  categories:
+    - Biography
+    - Comedy
+    - Drama
+    - Family
+- title: Terminal
+  user_id: 2
+  categories:
+    - Family
+    - Comedy
+    - Romance
+- title: Cast Away
+  user_id: 1
+  categories:
+    - Drama
+    - Adventure
+    - Mystery
+- title: Enemy at the Gates
+  user_id: 2
+  categories:
+    - War
+    - History
+    - Action
+    - Drama
