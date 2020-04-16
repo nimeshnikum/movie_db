@@ -1,0 +1,10 @@
+<div class="col-lg-6">
+  <div class="well sidebar-nav">
+    <h3>Browse by Categories</h3>
+    <ul class="list-group row">
+      <% @categories.each do |category| %>
+        <li class="list-group-item col-xs-4"><%= link_to "#{category.title} (#{category.movies.count})", category_path(category)  %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
