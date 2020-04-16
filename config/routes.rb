@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'movies#index'
 
   resources :movies
+  resources :categories
 
   namespace :api, defaults: { format: :json } do
     resources :movies
