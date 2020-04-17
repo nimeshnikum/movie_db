@@ -16,13 +16,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:user_id) %>
-  </div>
-  <div class="form-group">
     <%= f.label :title, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :title, :class => 'form-control' %>
@@ -30,9 +23,21 @@
     <%=f.error_span(:title) %>
   </div>
   <div class="form-group">
-    <%= f.label :text, :class => 'control-label col-lg-2' %>
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :text, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:text) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_ids, 'Categories', :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_check_boxes :category_ids, @categories, :id, :title do |c| %>
+        <div class="collection-check-box col-lg-2">
+          <%= c.check_box %>
+          <%= c.label %>
+        </div>
+      <% end %>
     </div>
     <%=f.error_span(:text) %>
   </div>

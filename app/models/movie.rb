@@ -4,6 +4,8 @@ class Movie < ApplicationRecord
 
   has_many :ratings
 
+  validates :title, presence: true, uniqueness: true
+
   def average_rating
     valid_ratings = ratings.reject { |r| r.rating.nil? }
     return nil if valid_ratings.blank?
