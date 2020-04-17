@@ -4,8 +4,8 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:edit, :update, :destroy]
 
   def index
-    @movies = Movie.all
-    @categories = Category.includes(:movies).select { |c| c.movies.count > 0 }
+    @movies = Movie.order([:average_rating, :title]).page params[:page]
+    @categories = Category.select { |c| c.movies.count > 0 }
     @group_by_ratings = @movies.group_by(&:average_rating)
   end
 
