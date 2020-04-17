@@ -1,12 +1,10 @@
-<div class="col-lg-6">
-  <div class="well sidebar-nav">
-    <h3>Browse by Ratings</h3>
-    <ul class="list-group row">
-      <% @group_by_ratings.each do |rating, movies| %>
-        <li class="list-group-item col-xs-4">
-          <%= link_to "#{rating} stars (#{movies.count})", movies_path  %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<div class="well sidebar-nav">
+  <h3>Browse by Ratings</h3>
+  <ul class="list-group row">
+    <% @group_by_ratings.each do |rating, movies| %>
+      <li class="list-group-item col-xs-4">
+        <%= link_to "#{rating} stars (#{movies.count})", movies_path  %>
+      </li>
+    <% end %>
+  </ul>
 </div>

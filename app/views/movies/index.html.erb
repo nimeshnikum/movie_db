@@ -1,40 +1,50 @@
 <%- model_class = Movie -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>
+    <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+    <%= link_to 'New Movie',
+                new_movie_path,
+                :class => 'btn btn-primary' %>
+  </h1>
 </div>
-<%= render 'categories_filter' %>
-<%= render 'ratings_filter' %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:text) %></th>
-      <th><%= Rating %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie| %>
+<div class="col-lg-4 pull-right">
+  <%= render 'categories_filter' %>
+  <%= render 'ratings_filter' %>
+</div>
+<div class="col-lg-8">
+  <table class="table table-striped pull-left">
+    <thead>
       <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.text %></td>
-        <td><%= movie.average_rating %></td>
-        <td>
-          <% if policy(movie).update? %>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_movie_path(movie), :class => 'btn btn-default btn-xs' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        movie_path(movie),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-xs btn-danger' %>
-          <% end %>
-        </td>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th>Average Rating</th>
+        <% if current_user %>
+          <th>Your Rating</th>
+        <% end %>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_movie_path,
-            :class => 'btn btn-primary' %>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.average_rating %></td>
+          <% if current_user %>
+            <td><%= movie.average_rating %></td>
+          <% end %>
+          <td>
+            <% if policy(movie).update? %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_movie_path(movie), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          movie_path(movie),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @movies %>
+</div>
