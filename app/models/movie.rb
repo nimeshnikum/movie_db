@@ -6,6 +6,8 @@ class Movie < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
 
+  scope :in_category, ->(category_ids) { includes(:categories).where(categories: { id: category_ids }) }
+
   def average_rating
     valid_ratings = ratings.reject { |r| r.rating.nil? }
     return nil if valid_ratings.blank?

@@ -4,7 +4,12 @@ class MoviesController < ApplicationController
   before_action :load_movie, only: [:edit, :update, :destroy]
 
   def index
-    @movies = Movie.order([:average_rating, :title]).page params[:page]
+    movie_scope = if params[:category]
+      Movie.in_category(params[:category])
+    else
+      Movie.all
+    end
+    @movies = movie_scope.order([:average_rating, :title]).page params[:page]
     @categories = Category.select { |c| c.movies.count > 0 }
     @group_by_ratings = @movies.group_by(&:average_rating)
   end
