@@ -1,9 +1,10 @@
 <div class="well sidebar-nav">
   <h3>Browse by Ratings</h3>
   <ul class="list-group row">
-    <% @group_by_ratings.each do |rating, movies| %>
-      <li class="list-group-item col-xs-4">
-        <%= link_to "#{rating} stars (#{movies.count})", movies_path  %>
+    <% @rating_groups.each do |rating, movie_count| %>
+      <li class="list-group-item col-xs-4 <%= highlight_current(rating, params[:rating]) %>">
+        <%= link_to rating_group(rating, movie_count),
+                    movies_path(category: params[:category], rating: rating.to_i)  %>
       </li>
     <% end %>
   </ul>
