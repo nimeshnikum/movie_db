@@ -37,3 +37,4 @@ production:
   username: jkvglskqgcforc
   password: ccdc0ed88ec7376da9d463ecfa16f76c5100ad923b05e691134c21fabb50d591
   host: ec2-54-247-79-178.eu-west-1.compute.amazonaws.com
+  port: 5432
