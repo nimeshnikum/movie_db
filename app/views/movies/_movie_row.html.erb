@@ -1,4 +1,4 @@
-<td><%= movie.title %></td>
+<td><%= movie.try(:highlight).try(:title) ? movie.highlight.title[0].html_safe : movie.title %></td>
 <td>
   <div class="rateit" data-rateit-value="<%= movie.average_rating.to_i %>" data-rateit-ispreset="true" data-rateit-readonly="true">
   </div>

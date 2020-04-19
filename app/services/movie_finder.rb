@@ -1,7 +1,8 @@
 class MovieFinder
-  attr_reader :category, :rating, :page, :movie_scope
+  attr_reader :search_keyword, :category, :rating, :page, :movie_scope
 
-  def initialize(category: nil, rating: nil, page: nil)
+  def initialize(search_keyword: nil, category: nil, rating: nil, page: nil)
+    @search_keyword = search_keyword
     @category = category
     @rating = rating
     @page = page
@@ -9,6 +10,7 @@ class MovieFinder
 
   def get!
     @movie_scope = Movie.all
+    @movie_scope = filter_by_search if search_keyword.present?
     @movie_scope = filter_by_ratings if rating
     @movie_scope = filter_by_categories if category
     category_groups = build_category_groups
@@ -18,6 +20,10 @@ class MovieFinder
   end
 
   private
+
+  def filter_by_search
+    @movie_scope.search(search_keyword).records
+  end
 
   def filter_by_categories
     @movie_scope.in_category(category)

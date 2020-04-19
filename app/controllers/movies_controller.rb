@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies, @category_groups, @rating_groups = MovieFinder.new(
+                                                  search_keyword: params[:q],
                                                   category: params[:category],
                                                   rating: params[:rating],
                                                   page: params[:page]

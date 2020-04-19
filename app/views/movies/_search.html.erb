@@ -1,0 +1,7 @@
+<%= form_for :search_movies, url: movies_path(category: params[:category], rating: params[:rating]), method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
