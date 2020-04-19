@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :text, category_ids: [])
+    params.require(:movie).permit(:title, :description, category_ids: [])
   end
 
   def load_categories

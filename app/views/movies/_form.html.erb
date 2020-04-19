@@ -25,9 +25,9 @@
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :text, :class => 'form-control' %>
+      <%= f.text_field :description, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:text) %>
+    <%=f.error_span(:description) %>
   </div>
   <div class="form-group">
     <%= f.label :category_ids, 'Categories', :class => 'control-label col-lg-2' %>
@@ -39,7 +39,6 @@
         </div>
       <% end %>
     </div>
-    <%=f.error_span(:text) %>
   </div>
 
   <div class="form-group">
