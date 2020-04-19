@@ -4,8 +4,23 @@ admin:
   email: admin@example.com
   first_name: System
   last_name: Admin
-guest_user:
-  username: guest
-  email: guest@example.com
-  first_name: Guest
+guest_user1:
+  username: guest1
+  email: guest1@example.com
+  first_name: Guest1
+  last_name: User
+guest_user2:
+  username: guest2
+  email: guest2@example.com
+  first_name: Guest2
+  last_name: User
+guest_user3:
+  username: guest3
+  email: guest3@example.com
+  first_name: Guest3
+  last_name: User
+guest_user4:
+  username: guest4
+  email: guest4@example.com
+  first_name: Guest4
   last_name: User
