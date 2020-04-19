@@ -2,9 +2,6 @@
   <h3>Browse by Categories</h3>
   <ul class="list-group row">
     <% @categories.each do |category| %>
-    <% p '11111' %>
-      <% p category.id.to_s %>
-      <% p params[:category] %>
       <li class="list-group-item col-xs-6 <%= 'font-weight-bold' if category.id.to_s == params[:category] %>">
         <%= link_to "#{category.title} (#{category.movies.count})", movies_path(category: category)  %>
       </li>

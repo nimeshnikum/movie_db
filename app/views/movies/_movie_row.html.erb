@@ -1,6 +1,6 @@
 <td><%= movie.title %></td>
 <td>
-  <div class="rateit" data-rateit-value="<%= movie.average_rating %>" data-rateit-ispreset="true" data-rateit-readonly="true">
+  <div class="rateit" data-rateit-value="<%= movie.average_rating.to_i %>" data-rateit-ispreset="true" data-rateit-readonly="true">
   </div>
 </td>
 <% if current_user %>

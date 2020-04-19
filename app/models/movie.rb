@@ -8,13 +8,17 @@ class Movie < ApplicationRecord
 
   scope :in_category, ->(category_ids) { includes(:categories).where(categories: { id: category_ids }) }
 
-  def average_rating
-    valid_ratings = ratings.reject { |r| r.rating.nil? }
-    return nil if valid_ratings.blank?
-    valid_ratings.map(&:rating).sum(0.0) / valid_ratings.size
-  end
+  after_touch :update_average_rating
 
   def user_rating(user)
     ratings.find_by(user: user).try(:rating)
+  end
+
+  private
+
+  def update_average_rating
+    update(average_rating: ratings.average(:rating).round(2))
+  rescue
+    # do nothing
   end
 end
