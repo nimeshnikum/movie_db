@@ -11,6 +11,10 @@ class Movie < ApplicationRecord
   def average_rating
     valid_ratings = ratings.reject { |r| r.rating.nil? }
     return nil if valid_ratings.blank?
-    valid_ratings.sum(0) / valid_ratings.size
+    valid_ratings.map(&:rating).sum(0.0) / valid_ratings.size
+  end
+
+  def user_rating(user)
+    ratings.find_by(user: user).try(:rating)
   end
 end

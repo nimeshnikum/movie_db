@@ -1,0 +1,26 @@
+<td><%= movie.title %></td>
+<td>
+  <div class="rateit" data-rateit-value="<%= movie.average_rating %>" data-rateit-ispreset="true" data-rateit-readonly="true">
+  </div>
+</td>
+<% if current_user %>
+  <td>
+    <div class="rateit"
+        data-movieid="<%= movie.id %>"
+        data-rateit-value="<%= movie.user_rating(current_user) %>"
+        data-rateit-step="1"
+        data-rateit-resetable="false">
+    </div>
+  </td>
+<% end %>
+<td>
+  <% if policy(movie).update? %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_movie_path(movie), :class => 'btn btn-default btn-xs' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                movie_path(movie),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-xs btn-danger' %>
+  <% end %>
+</td>

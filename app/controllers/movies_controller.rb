@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :load_categories, only: [:new, :create, :edit, :update]
-  before_action :load_movie, only: [:edit, :update, :destroy]
+  before_action :set_movie, only: [:edit, :update, :destroy]
 
   def index
     movie_scope = if params[:category]
@@ -15,11 +15,11 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = current_user.movies.new
+    @movie = current_user.movies.build
   end
 
   def create
-    @movie = current_user.movies.new(movie_params)
+    @movie = current_user.movies.build(movie_params)
     if @movie.save
       flash[:notice] = 'Movie was successfully created'
       redirect_to movies_path
@@ -59,7 +59,7 @@ class MoviesController < ApplicationController
     @categories = Category.all
   end
 
-  def load_movie
+  def set_movie
     @movie = current_user.movies.find(params[:id])
   end
 end
