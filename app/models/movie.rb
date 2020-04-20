@@ -1,7 +1,7 @@
-# require 'elasticsearch/model'
+require 'elasticsearch/model'
 
 class Movie < ApplicationRecord
-  # include Searchable
+  include Searchable
 
   has_and_belongs_to_many :categories
   belongs_to :user, optional: true
@@ -28,11 +28,11 @@ class Movie < ApplicationRecord
 end
 
 # Delete the previous articles index in Elasticsearch
-# Movie.__elasticsearch__.client.indices.delete index: Movie.index_name rescue nil
-#
-# # Create the new index with the new mapping
-# Movie.__elasticsearch__.client.indices.create \
-#   index: Movie.index_name,
-#   body: { settings: Movie.settings.to_hash, mappings: Movie.mappings.to_hash }
-#
-# Movie.import
+Movie.__elasticsearch__.client.indices.delete index: Movie.index_name rescue nil
+
+# Create the new index with the new mapping
+Movie.__elasticsearch__.client.indices.create \
+  index: Movie.index_name,
+  body: { settings: Movie.settings.to_hash, mappings: Movie.mappings.to_hash }
+
+Movie.import
