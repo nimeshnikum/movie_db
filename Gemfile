@@ -28,7 +28,7 @@ gem 'kaminari'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-
+gem 'bonsai-elasticsearch-rails', github: 'omc/bonsai-elasticsearch-rails', branch: 'master'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
