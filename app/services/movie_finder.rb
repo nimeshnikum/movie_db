@@ -10,7 +10,7 @@ class MovieFinder
 
   def get!
     @movie_scope = Movie.all
-    @movie_scope = filter_by_search if search_keyword.present?
+    # @movie_scope = filter_by_search if search_keyword.present?
     @movie_scope = filter_by_ratings if rating
     @movie_scope = filter_by_categories if category
     category_groups = build_category_groups
