@@ -61,6 +61,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+end
+
 group :production do
   gem 'rails_12factor'
 end

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_094735) do
   create_table "movies", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.text "text"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "average_rating"
